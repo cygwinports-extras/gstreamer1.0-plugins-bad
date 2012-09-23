@@ -1,0 +1,49 @@
+NAME="gstreamer1.0-plugins-bad"
+VERSION=0.11.99
+RELEASE=1
+CATEGORY="Audio Video"
+SUMMARY="GStreamer 1.0 Bad plugins"
+DESCRIPTION="GStreamer Bad Plug-ins is a set of plug-ins that aren't up to par
+compared to the rest. They might be close to being good quality, but they're
+missing something - be it a good code review, some documentation, a set of
+tests, a real live maintainer, or some actual wide use."
+GST_PLUGINS_ENABLE="dts faad gme libmms mimic mpeg2enc mpg123 mplex rtmp
+	voaacenc voamrwbenc"
+GST_PLUGINS_DISABLE="apple_media avc directsound direct3d direct3d9 directdraw
+	directshow osx_video quicktime uvch264 vcd cdaudio dc1394 decklink
+	directfb wayland faac fbdev libmms linsys mythtv pvr teletextdec spc
+	swfdec dvb wininet acm vdpau spandsp sndio winscreencap"
+# deps available, but plugins not yet ported to 1.0
+GST_PLUGINS_DISABLE+=" xvid"
+# shipped in bad-free
+GST_PLUGINS_DISABLE+=" apexsink assrender bz2 celt chromaprint cog curl dirac
+	gsettings gsm jasper kate ladpsa lv2 modplug musepack musicbrainz nas
+	neon ofa openal opencv opus resindvd rsvg soundtouch schro timidity
+	wildmidi sdl shm sndfile zbar"
+inherit gst-plugins
+
+PKG_NAMES="${PN}"
+
+for ext in ${GST_PLUGINS_ENABLE}
+do
+	PKG_NAMES+=" ${PN%-bad}-${ext}"
+	declare gstreamer1_0_plugins_${ext}_SUMMARY="GStreamer 1.0 ${ext} plugin"
+	declare gstreamer1_0_plugins_${ext}_CONTENTS="${GST_PLUGINDIR#/}/cyggst${ext#lib}*.dll"
+	gstreamer1_0_plugins_bad_CONTENTS+=" --exclude=cyggst${ext#lib}*.dll"
+done
+unset ext
+
+gstreamer1_0_plugins_bad_CONTENTS+=" usr/lib/gstreamer-1.0/ usr/share/doc/"
+gstreamer1_0_plugins_voamrwbenc_CONTENTS+=" usr/share/gstreamer-1.0/presets/GstVoAmrwbEnc.prs"
+
+DIFF_EXCLUDES+=" *.gschema.xml"
+
+CYGCONF_ARGS="--with-plugins=dvbsuboverlay,dvdspu,real,siren --disable-gtk-doc"
+
+src_install() {
+	cd ${B}
+	cyginstall -C gst
+	cyginstall -C ext
+}
+
+KEEP_LA_FILES="none"
