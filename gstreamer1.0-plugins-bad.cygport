@@ -1,5 +1,5 @@
 NAME="gstreamer1.0-plugins-bad"
-VERSION=1.0.3
+VERSION=1.0.4
 RELEASE=1
 CATEGORY="Audio Video"
 SUMMARY="GStreamer 1.0 Bad plugins"
@@ -9,14 +9,14 @@ missing something - be it a good code review, some documentation, a set of
 tests, a real live maintainer, or some actual wide use."
 GST_PLUGINS_ENABLE="dts faad gme libmms mimic mpeg2enc mpg123 mplex rtmp
 	voaacenc voamrwbenc"
-GST_PLUGINS_DISABLE="apple_media avc directsound direct3d direct3d9 directdraw
-	directshow osx_video quicktime uvch264 vcd cdaudio dc1394 decklink
-	directfb wayland faac fbdev libmms linsys mythtv pvr teletextdec spc
-	swfdec dvb wininet acm vdpau spandsp sndio winscreencap"
+GST_PLUGINS_DISABLE="apple_media avc osx_video quicktime uvch264 vcd cdaudio
+	dc1394 decklink directfb wayland faac fbdev linsys mythtv pvr
+	teletextdec spc swfdec dvb wininet acm vdpau spandsp sndio winscreencap"
 # deps available, but plugins not yet ported to 1.0
 GST_PLUGINS_DISABLE+=" xvid"
 # shipped in bad-free
 GST_PLUGINS_DISABLE+=" apexsink assrender bz2 celt chromaprint cog curl dirac
+	directsound direct3d direct3d9 directdraw directshow
 	gsettings gsm jasper kate ladpsa lv2 modplug musepack musicbrainz nas
 	neon ofa openal opencv opus resindvd rsvg soundtouch schro timidity
 	wildmidi sdl shm sndfile zbar"
