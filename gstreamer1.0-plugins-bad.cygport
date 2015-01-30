@@ -8,7 +8,7 @@ GST_PLUGINS_DISABLE="apple_media avc osx_video quicktime uvch264 vcd cdaudio
 GST_PLUGINS_DISABLE+=" xvid"
 # shipped in bad-free
 GST_PLUGINS_DISABLE+=" apexsink assrender bz2 chromaprint cog curl dash
-	directsound direct3d direct3d9 directdraw directshow fluidsynth
+	directsound direct3d direct3d9 directdraw directshow fluidsynth gles2
 	gsettings gsm hls jasper kate ladspa lv2 modplug musepack nas neon ofa
 	openal opencv openexr opengl openjpeg opus resindvd rsvg smoothstreaming soundtouch
 	schro sndfile timidity wildmidi sdl shm sndfile webp zbar"
