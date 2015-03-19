@@ -16,7 +16,7 @@ inherit gst-plugins
 
 NAME="gstreamer1.0-plugins-bad"
 VERSION=1.4.5
-RELEASE=1
+RELEASE=2
 CATEGORY="Audio Video"
 SUMMARY="GStreamer 1.0 Bad plugins"
 DESCRIPTION="GStreamer Bad Plug-ins is a set of plug-ins that aren't up to par
