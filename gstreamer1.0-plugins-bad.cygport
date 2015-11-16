@@ -1,5 +1,5 @@
-GST_PLUGINS_ENABLE="dts faad gme libmms mimic mpeg2enc mpg123 mplex rtmp
-	voaacenc voamrwbenc"
+GST_PLUGINS_ENABLE="dts faad libmms mimic mpeg2enc mpg123 mplex rtmp
+	voaacenc voamrwbenc x265"
 GST_PLUGINS_DISABLE="apple_media avc osx_video quicktime uvch264 vcd cdaudio
 	dc1394 decklink directfb wayland faac fbdev linsys mythtv pvr
 	teletextdec spc swfdec dvb wininet acm vdpau spandsp sndio winscreencap
@@ -7,16 +7,16 @@ GST_PLUGINS_DISABLE="apple_media avc osx_video quicktime uvch264 vcd cdaudio
 # deps available, but plugins not yet ported to 1.0
 GST_PLUGINS_DISABLE+=" xvid"
 # shipped in bad-free
-GST_PLUGINS_DISABLE+=" apexsink assrender bz2 chromaprint cog curl dash
-	directsound direct3d direct3d9 directdraw directshow fluidsynth gles2
-	gsettings gsm hls jasper kate ladspa lv2 modplug musepack nas neon ofa
-	openal opencv openexr opengl openjpeg opus resindvd rsvg smoothstreaming soundtouch
+GST_PLUGINS_DISABLE+=" apexsink assrender bs2b bz2 chromaprint cog curl daala dash
+	directsound direct3d direct3d9 directdraw directshow dtls flite fluidsynth gl gles2
+	gme gsettings gsm gtk3 hls jasper kate ladspa lv2 modplug musepack nas neon ofa
+	openal opencv openexr opengl openjpeg opus qt resindvd rsvg smoothstreaming soundtouch
 	schro sndfile timidity wildmidi sdl shm sndfile webp zbar"
 inherit gst-plugins
 
 NAME="gstreamer1.0-plugins-bad"
-VERSION=1.4.5
-RELEASE=2
+VERSION=1.6.1
+RELEASE=1
 CATEGORY="Audio Video"
 SUMMARY="GStreamer 1.0 Bad plugins"
 DESCRIPTION="GStreamer Bad Plug-ins is a set of plug-ins that aren't up to par
@@ -28,15 +28,9 @@ PKG_NAMES="${NAME}"
 
 for ext in ${GST_PLUGINS_ENABLE}
 do
-	PKG_NAMES+=" ${NAME%-bad}-${ext}"
-	declare gstreamer1_0_plugins_${ext}_SUMMARY="GStreamer 1.0 ${ext} plugin"
-	declare gstreamer1_0_plugins_${ext}_CONTENTS="${GST_PLUGINDIR#/}/cyggst${ext#lib}*.dll"
-	gstreamer1_0_plugins_bad_CONTENTS+=" --exclude=cyggst${ext#lib}*.dll"
+	gstreamer1_0_plugins_bad_OBSOLETES+=" ${NAME%-bad}-${ext}"
 done
 unset ext
-
-gstreamer1_0_plugins_bad_CONTENTS+=" usr/lib/gstreamer-1.0/ usr/share/doc/"
-gstreamer1_0_plugins_voamrwbenc_CONTENTS+=" usr/share/gstreamer-1.0/presets/GstVoAmrwbEnc.prs"
 
 DIFF_EXCLUDES+=" *.gschema.xml"
 
