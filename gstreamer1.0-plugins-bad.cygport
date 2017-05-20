@@ -1,7 +1,7 @@
-GST_PLUGINS_ENABLE="dts faad libmms mimic mpeg2enc mplex rtmp
+GST_PLUGINS_ENABLE="dts faad fdk_aac libmms mpeg2enc mplex openh264 rtmp
 	voaacenc voamrwbenc x265"
 GST_PLUGINS_DISABLE="apple_media avc osx_video quicktime uvch264 vcd cdaudio
-	dc1394 decklink directfb wayland faac fbdev linsys mythtv pvr
+	dc1394 decklink directfb wayland faac fbdev linsys mimic mythtv pvr
 	teletextdec spc swfdec dvb wininet acm vdpau spandsp sndio winscreencap
 	wasapi winks srtp"
 # deps available, but plugins not yet ported to 1.0
@@ -16,7 +16,7 @@ inherit gst-plugins
 
 NAME="gstreamer1.0-plugins-bad"
 VERSION=1.10.4
-RELEASE=1
+RELEASE=2
 CATEGORY="Audio Video"
 SUMMARY="GStreamer 1.0 Bad plugins"
 DESCRIPTION="GStreamer Bad Plug-ins is a set of plug-ins that aren't up to par
