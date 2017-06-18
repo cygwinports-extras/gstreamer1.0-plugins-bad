@@ -15,8 +15,8 @@ GST_PLUGINS_DISABLE+=" apexsink assrender bs2b bz2 chromaprint cog curl daala da
 inherit gst-plugins
 
 NAME="gstreamer1.0-plugins-bad"
-VERSION=1.10.4
-RELEASE=2
+VERSION=1.10.5
+RELEASE=1
 CATEGORY="Audio Video"
 SUMMARY="GStreamer 1.0 Bad plugins"
 DESCRIPTION="GStreamer Bad Plug-ins is a set of plug-ins that aren't up to par
