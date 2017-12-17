@@ -11,11 +11,11 @@ GST_PLUGINS_DISABLE+=" apexsink assrender bs2b bz2 chromaprint cog curl daala da
 	directsound direct3d direct3d9 directdraw directshow dtls flite fluidsynth gl gles2
 	gme gsettings gsm gtk3 hls jasper kate ladspa lv2 modplug musepack nas neon ofa
 	openal opencv openexr opengl openjpeg opus qt resindvd rsvg smoothstreaming soundtouch
-	schro sndfile timidity webrtcdsp wildmidi sdl shm sndfile webp zbar"
+	schro sndfile timidity ttml webrtcdsp wildmidi sdl shm sndfile webp zbar"
 inherit gst-plugins
 
 NAME="gstreamer1.0-plugins-bad"
-VERSION=1.12.3
+VERSION=1.12.4
 RELEASE=1
 CATEGORY="Audio Video"
 SUMMARY="GStreamer 1.0 Bad plugins"
