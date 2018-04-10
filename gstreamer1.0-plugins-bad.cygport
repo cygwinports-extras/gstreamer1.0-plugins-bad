@@ -1,8 +1,7 @@
 GST_PLUGINS_ENABLE="dts faad libmms mpeg2enc mplex openh264 rtmp voamrwbenc x265"
 GST_PLUGINS_DISABLE="apple_media avc osx_video quicktime uvch264 vcd cdaudio
 	dc1394 decklink directfb wayland faac fbdev linsys mimic mythtv pvr
-	teletextdec spc swfdec dvb wininet vdpau spandsp sndio voaacenc
-	winscreencap wasapi winks"
+	teletextdec spc swfdec dvb wininet vdpau spandsp sndio voaacenc wasapi"
 # deps available, but plugins not yet ported to 1.0
 GST_PLUGINS_DISABLE+=" xvid"
 # shipped in bad-free
@@ -10,12 +9,13 @@ GST_PLUGINS_DISABLE+=" acm apexsink assrender bs2b bz2 chromaprint cog curl daal
 	directsound direct3d direct3d9 directdraw directshow dtls fdk_aac flite fluidsynth gl gles2
 	gme gsettings gsm gtk3 hls jasper kate ladspa lv2 modplug musepack nas neon ofa
 	openal opencv openexr opengl openjpeg opus qt resindvd rsvg smoothstreaming soundtouch
-	schro sndfile srtp timidity ttml webrtcdsp wildmidi sdl shm sndfile webp zbar"
+	schro sndfile srtp timidity ttml webrtcdsp wildmidi sdl shm sndfile
+	webp winks winscreencap zbar"
 inherit gst-plugins
 
 NAME="gstreamer1.0-plugins-bad"
-VERSION=1.12.4
-RELEASE=2
+VERSION=1.12.5
+RELEASE=1
 CATEGORY="Audio Video"
 SUMMARY="GStreamer 1.0 Bad plugins"
 DESCRIPTION="GStreamer Bad Plug-ins is a set of plug-ins that aren't up to par
@@ -40,5 +40,3 @@ src_install() {
 	cyginstall -C gst
 	cyginstall -C ext
 }
-
-KEEP_LA_FILES="none"
